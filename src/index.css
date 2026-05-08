@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --grain-opacity: 0.04;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter Tight', system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  background-color: #fbf9f5;
+  color: #0d1018;
+}
+
+/* Selection */
+::selection {
+  background: #0d1018;
+  color: #f5f1e8;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f1e8;
+}
+::-webkit-scrollbar-thumb {
+  background: #4a5266;
+  border: 2px solid #f5f1e8;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #181c27;
+}
+
+@layer components {
+  .container-prose {
+    @apply mx-auto w-full max-w-7xl px-6 md:px-10 lg:px-16;
+  }
+
+  .display-1 {
+    @apply font-display font-light tracking-tightest leading-[0.95];
+  }
+
+  .eyebrow {
+    @apply text-[11px] uppercase tracking-widestplus font-medium text-ink-500;
+  }
+
+  .link-underline {
+    position: relative;
+  }
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -3px;
+    height: 1px; width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .link-underline:hover::after,
+  .link-underline.active::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-3 bg-ink-900 text-sand-50 px-7 py-4 text-sm
+           font-medium tracking-wide uppercase transition-all duration-500
+           hover:bg-brass-500 hover:text-ink-900;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-3 border border-ink-900 text-ink-900 px-7 py-4 text-sm
+           font-medium tracking-wide uppercase transition-all duration-500
+           hover:bg-ink-900 hover:text-sand-50;
+  }
+
+  .input-base {
+    @apply w-full bg-transparent border-b border-ink-300 px-0 py-3 text-ink-900
+           placeholder:text-ink-400 focus:outline-none focus:border-ink-900
+           transition-colors duration-300;
+  }
+}
+
+/* Grain overlay */
+.grain {
+  position: relative;
+}
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* Reveal-on-scroll utility (used with IntersectionObserver) */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Marquee track must be 200% wide for the seamless -50% loop */
+.marquee-track {
+  width: max-content;
+  display: flex;
+}
