@@ -46,10 +46,12 @@ export default function Navbar() {
             className="h-10 w-10 md:h-11 md:w-11 object-cover rounded-sm"
           />
           <div className="leading-tight">
-            <div className="font-display text-lg md:text-xl text-ink-900 tracking-tightest">
+            <div className={`font-display text-lg md:text-xl tracking-tightest transition-colors duration-500
+                            ${scrolled ? 'text-ink-900' : 'text-sand-50'}`}>
               Southshore
             </div>
-            <div className="text-[10px] md:text-[11px] uppercase tracking-widestplus text-ink-500">
+            <div className={`text-[10px] md:text-[11px] uppercase tracking-widestplus transition-colors duration-500
+                            ${scrolled ? 'text-ink-500' : 'text-sand-100/70'}`}>
               Design &amp; Construction
             </div>
           </div>
@@ -62,9 +64,11 @@ export default function Navbar() {
               to={l.to}
               end={l.to === '/'}
               className={({ isActive }) =>
-                `link-underline text-[13px] uppercase tracking-widestplus font-medium
-                 transition-colors duration-300
-                 ${isActive ? 'text-ink-900 active' : 'text-ink-500 hover:text-ink-900'}`
+                `link-underline text-[13px] uppercase tracking-widestplus font-medium transition-colors duration-300
+                 ${scrolled
+                   ? (isActive ? 'text-ink-900 active' : 'text-ink-500 hover:text-ink-900')
+                   : (isActive ? 'text-sand-50 active' : 'text-sand-100/70 hover:text-sand-50')
+                 }`
               }
             >
               {l.label}
@@ -74,9 +78,12 @@ export default function Navbar() {
 
         <Link
           to="/contact"
-          className="hidden lg:inline-flex items-center gap-2 text-[13px] uppercase tracking-widestplus
-                     font-medium text-ink-900 border-b border-ink-900 pb-1 hover:text-brass-500 hover:border-brass-500
-                     transition-colors duration-300"
+          className={`hidden lg:inline-flex items-center gap-2 text-[13px] uppercase tracking-widestplus
+                     font-medium pb-1 transition-colors duration-300
+                     ${scrolled
+                       ? 'text-ink-900 border-b border-ink-900 hover:text-brass-500 hover:border-brass-500'
+                       : 'text-sand-50 border-b border-sand-50/60 hover:text-brass-400 hover:border-brass-400'
+                     }`}
         >
           Start a project
           <span aria-hidden>→</span>
@@ -89,11 +96,14 @@ export default function Navbar() {
           onClick={() => setOpen((v) => !v)}
           className="lg:hidden relative w-10 h-10 grid place-items-center"
         >
-          <span className={`block w-6 h-px bg-ink-900 transition-transform duration-300 absolute
+          <span className={`block w-6 h-px transition-all duration-300 absolute
+                            ${scrolled ? 'bg-ink-900' : 'bg-sand-50'}
                             ${open ? 'rotate-45' : '-translate-y-2'}`} />
-          <span className={`block w-6 h-px bg-ink-900 transition-opacity duration-300 absolute
+          <span className={`block w-6 h-px transition-all duration-300 absolute
+                            ${scrolled ? 'bg-ink-900' : 'bg-sand-50'}
                             ${open ? 'opacity-0' : 'opacity-100'}`} />
-          <span className={`block w-6 h-px bg-ink-900 transition-transform duration-300 absolute
+          <span className={`block w-6 h-px transition-all duration-300 absolute
+                            ${scrolled ? 'bg-ink-900' : 'bg-sand-50'}
                             ${open ? '-rotate-45' : 'translate-y-2'}`} />
         </button>
       </div>
