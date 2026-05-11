@@ -64,18 +64,18 @@ export default function Contact() {
             </Reveal>
             <Reveal delay={100}>
               <a
-                href="tel:+4402077409165"
+                href="tel:07802342616"
                 className="block font-display text-4xl md:text-5xl tracking-tightest text-ink-900 hover:text-brass-500 transition-colors duration-500"
               >
-                +44 020 7740 9165
+                07802 342 616
               </a>
             </Reveal>
             <Reveal delay={150}>
               <a
-                href="tel:07802342616"
+                href="tel:+4402077409165"
                 className="block mt-2 font-display text-2xl text-ink-700 hover:text-brass-500 transition-colors duration-500"
               >
-                Mob: 07802 342 616
+                T: +44 020 7740 9165
               </a>
             </Reveal>
             <Reveal delay={200}>
@@ -91,7 +91,7 @@ export default function Contact() {
               <div className="mt-12 pt-10 border-t border-ink-200">
                 <div className="eyebrow mb-4">Office hours</div>
                 <p className="text-ink-700 leading-relaxed">
-                  Monday — Friday<br />
+                  Monday — Saturday<br />
                   9:00 AM – 6:00 PM
                 </p>
               </div>
@@ -99,12 +99,24 @@ export default function Contact() {
 
             <Reveal delay={320}>
               <div className="mt-10 pt-10 border-t border-ink-200">
-                <div className="eyebrow mb-4">Visit us</div>
+                <div className="eyebrow mb-2">Head Office</div>
                 <address className="not-italic text-ink-700 leading-relaxed">
-                  <strong className="text-ink-900 font-medium">Design &amp; Construction</strong><br />
+                  <strong className="text-ink-900 font-medium">Wimbledon, London</strong><br />
                   Highland House, 165–167<br />
                   The Broadway,<br />
                   Wimbledon SW19 1NE
+                </address>
+              </div>
+            </Reveal>
+
+            <Reveal delay={360}>
+              <div className="mt-8 pt-8 border-t border-ink-200">
+                <div className="eyebrow mb-2">Branch Office</div>
+                <address className="not-italic text-ink-700 leading-relaxed">
+                  <strong className="text-ink-900 font-medium">Midlands</strong><br />
+                  181 Arkwright Road,<br />
+                  Irchester,<br />
+                  Wellingborough NN29 7HG
                 </address>
               </div>
             </Reveal>

@@ -45,19 +45,27 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Address */}
+          {/* Offices */}
           <div className="lg:col-span-3">
-            <div className="eyebrow text-sand-100/50 mb-5">Address</div>
+            <div className="eyebrow text-sand-100/50 mb-5">Head Office</div>
             <address className="not-italic text-sand-100/80 leading-relaxed">
               Highland House, 165–167<br />
               The Broadway,<br />
               Wimbledon SW19 1NE
             </address>
+            <div className="mt-6">
+              <div className="eyebrow text-sand-100/50 mb-3">Branch Office</div>
+              <address className="not-italic text-sand-100/80 leading-relaxed">
+                181 Arkwright Road,<br />
+                Irchester,<br />
+                Wellingborough NN29 7HG
+              </address>
+            </div>
             <div className="mt-5 space-y-1">
               <a href="tel:07802342616" className="block hover:text-brass-400 transition-colors">
-                Mob: 07802 342 616
+                07802 342 616
               </a>
-              <a href="tel:+4402077409165" className="block hover:text-brass-400 transition-colors">
+              <a href="tel:+4402077409165" className="block hover:text-brass-400 transition-colors text-sand-100/60">
                 T: +44 020 7740 9165
               </a>
             </div>
