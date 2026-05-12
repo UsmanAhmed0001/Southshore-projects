@@ -50,16 +50,6 @@ export default function HeroVideo({
       <div className="absolute inset-0 bg-gradient-to-r from-ink-950/60 via-transparent to-transparent" />
       <div className="absolute inset-0 grain pointer-events-none" />
 
-      {/* Top frame: small cap line */}
-      <div className="absolute top-28 md:top-32 inset-x-0">
-        <div className="container-prose flex items-center gap-3">
-          <span className="h-px w-10 bg-sand-100/40" />
-          <span className="text-[11px] uppercase tracking-widestplus text-sand-100/70">
-            Wimbledon · London · Est. for the careful client
-          </span>
-        </div>
-      </div>
-
       {/* Center text */}
       <div className="relative z-10 h-full container-prose flex flex-col justify-end pb-20 md:pb-28">
         {eyebrow && (
