@@ -50,9 +50,9 @@ export default function Projects() {
           {/* Status board */}
           <div className="mt-32 grid md:grid-cols-3 gap-px bg-ink-200">
             {[
-              { label: 'In design', value: '4 projects', detail: 'Residential & commercial schemes' },
-              { label: 'On site',   value: '6 projects', detail: 'Across London & the South' },
-              { label: 'In handover', value: '2 projects', detail: 'Completing this quarter' }
+              { label: 'In design',   value: '1,032 projects', detail: 'Residential & commercial schemes' },
+              { label: 'On site',     value: '235 projects',   detail: 'Across London & the UK' },
+              { label: 'In handover', value: '79 projects',    detail: 'Completing this quarter' }
             ].map((s, i) => (
               <Reveal key={s.label} delay={i * 120} className="bg-sand-50 p-8 md:p-12">
                 <div className="eyebrow mb-6">{s.label}</div>

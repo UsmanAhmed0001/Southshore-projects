@@ -100,10 +100,10 @@ export default function Navbar() {
       <div className="px-6 md:px-10 py-8 border-t border-ink-100 flex-shrink-0">
         <div className="eyebrow mb-3">Get in touch</div>
         <a
-          href="tel:07802342616"
+          href="tel:+447802342616"
           className="block font-display text-2xl text-ink-900 hover:text-brass-500 transition-colors"
         >
-          07802 342 616
+          +44 7802 342 616
         </a>
         <a
           href="tel:+447591217629"

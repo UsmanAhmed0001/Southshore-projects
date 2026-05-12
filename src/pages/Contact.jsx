@@ -64,10 +64,10 @@ export default function Contact() {
             </Reveal>
             <Reveal delay={100}>
               <a
-                href="tel:07802342616"
+                href="tel:+447802342616"
                 className="block font-display text-4xl md:text-5xl tracking-tightest text-ink-900 hover:text-brass-500 transition-colors duration-500"
               >
-                07802 342 616
+                +44 7802 342 616
               </a>
             </Reveal>
             <Reveal delay={150}>

@@ -40,8 +40,8 @@ export default function Footer() {
               <li><Link to="/about" className="hover:text-brass-400 transition-colors">About Us</Link></li>
               <li><Link to="/contact" className="hover:text-brass-400 transition-colors">Contact Us</Link></li>
               <li><Link to="/projects" className="hover:text-brass-400 transition-colors">Our Projects</Link></li>
-              <li><Link to="/equal-opportunity-policy" className="hover:text-brass-400 transition-colors">Equal Opportunity</Link></li>
-              <li><Link to="/modern-slavery-statement" className="hover:text-brass-400 transition-colors">Modern Slavery</Link></li>
+              <li><Link to="/services" className="hover:text-brass-400 transition-colors">Our Services</Link></li>
+              <li><Link to="/gallery" className="hover:text-brass-400 transition-colors">Gallery</Link></li>
             </ul>
           </div>
 
@@ -62,8 +62,8 @@ export default function Footer() {
               </address>
             </div>
             <div className="mt-5 space-y-1">
-              <a href="tel:07802342616" className="block hover:text-brass-400 transition-colors">
-                07802 342 616
+              <a href="tel:+447802342616" className="block hover:text-brass-400 transition-colors">
+                +44 7802 342 616
               </a>
               <a href="tel:+447591217629" className="block hover:text-brass-400 transition-colors text-sand-100/80">
                 +44 7591 217629
@@ -89,7 +89,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Southshore Projects. All rights reserved.
           </p>
           <p className="text-sand-100/40 text-xs uppercase tracking-widestplus">
-            Building &nbsp;·&nbsp; Designing &nbsp;·&nbsp; Delivering — in London
+            Building &nbsp;·&nbsp; Designing &nbsp;·&nbsp; Delivering — All over United Kingdom
           </p>
         </div>
       </div>

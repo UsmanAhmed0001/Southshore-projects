@@ -7,8 +7,6 @@ import Services from './pages/Services.jsx'
 import Gallery from './pages/Gallery.jsx'
 import Projects from './pages/Projects.jsx'
 import Contact from './pages/Contact.jsx'
-import EqualOpportunity from './pages/EqualOpportunity.jsx'
-import ModernSlavery from './pages/ModernSlavery.jsx'
 
 export default function App() {
   return (
@@ -22,8 +20,6 @@ export default function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/equal-opportunity-policy" element={<EqualOpportunity />} />
-          <Route path="/modern-slavery-statement" element={<ModernSlavery />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </Layout>
