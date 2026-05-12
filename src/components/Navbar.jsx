@@ -106,6 +106,12 @@ export default function Navbar() {
           07802 342 616
         </a>
         <a
+          href="tel:+447591217629"
+          className="block font-display text-lg text-ink-700 mt-1 hover:text-brass-500 transition-colors"
+        >
+          +44 7591 217629
+        </a>
+        <a
           href="mailto:info@southshoreprojects.com"
           className="block text-ink-500 mt-1 hover:text-ink-900 transition-colors"
         >

@@ -65,6 +65,9 @@ export default function Footer() {
               <a href="tel:07802342616" className="block hover:text-brass-400 transition-colors">
                 07802 342 616
               </a>
+              <a href="tel:+447591217629" className="block hover:text-brass-400 transition-colors text-sand-100/80">
+                +44 7591 217629
+              </a>
               <a href="tel:+4402077409165" className="block hover:text-brass-400 transition-colors text-sand-100/60">
                 T: +44 020 7740 9165
               </a>

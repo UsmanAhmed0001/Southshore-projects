@@ -72,8 +72,16 @@ export default function Contact() {
             </Reveal>
             <Reveal delay={150}>
               <a
-                href="tel:+4402077409165"
+                href="tel:+447591217629"
                 className="block mt-2 font-display text-2xl text-ink-700 hover:text-brass-500 transition-colors duration-500"
+              >
+                +44 7591 217629
+              </a>
+            </Reveal>
+            <Reveal delay={180}>
+              <a
+                href="tel:+4402077409165"
+                className="block mt-2 font-display text-xl text-ink-500 hover:text-brass-500 transition-colors duration-500"
               >
                 T: +44 020 7740 9165
               </a>
