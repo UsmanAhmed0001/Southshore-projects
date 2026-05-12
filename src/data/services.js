@@ -15,8 +15,8 @@ export const services = [
     number: '02',
     title: 'Structural Engineering',
     summary:
-      'Honest, buildable engineering. We size, detail, and certify structures that stand up to scrutiny — from single-storey rear extensions to full new-builds.',
-    keywords: ['Analysis', 'Detailing', 'Compliance']
+      'If your property is showing signs of movement — cracking, subsidence, bowing walls, or a roof that does not look right — a structural engineer should be your first call. We carry out on-site inspections, establish the cause and severity of the problem, and produce a clear written report with recommended remedial works and, where requested, budget costs. We also provide the structural calculations and drawings required by building control for extensions, loft conversions, wall removals, and new builds. Our reports are accepted by property owners, mortgage lenders, insurers, and developers alike.',
+    keywords: ['Structural Surveys & Reports', 'Calculations & Drawings', 'Building Regulations', 'Subsidence & Cracking', 'For Mortgage Lenders', 'For Insurers & Developers']
   },
   {
     id: 'interior-design',
