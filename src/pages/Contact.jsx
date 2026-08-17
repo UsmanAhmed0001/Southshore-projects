@@ -26,16 +26,16 @@ export default function Contact() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    // POST /api/contact — wire this up to your backend
-    // (Nodemailer / Hostinger SMTP, just like the Kreston site)
     try {
-      await fetch('/api/contact', {
+      const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
-      }).catch(() => {})
-    } finally {
+      })
+      if (!res.ok) throw new Error('Failed')
       setSubmitted(true)
+    } catch {
+      alert('Sorry, something went wrong. Please call us or email directly.')
     }
   }
 
