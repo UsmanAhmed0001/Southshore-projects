@@ -270,6 +270,7 @@ export default function Projects() {
                 <button
                   key={cat.id}
                   onClick={() => setActive(cat.id)}
+                  onMouseEnter={() => setActive(cat.id)}
                   className={`relative px-5 md:px-7 py-4 text-sm uppercase tracking-widestplus font-medium
                               transition-colors duration-300
                               ${active === cat.id ? 'text-ink-900' : 'text-ink-400 hover:text-ink-700'}`}
