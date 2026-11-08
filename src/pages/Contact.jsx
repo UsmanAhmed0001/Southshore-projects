@@ -242,6 +242,10 @@ export default function Contact() {
                     >
                       {sending ? 'Sending…' : <>Send <span aria-hidden>→</span></>}
                     </button>
+                      <p className="text-xs text-sand-100/60 leading-relaxed">
+                      We only use your details to reply to your enquiry. See our{' '}
+                      <a href="/privacy" className="underline hover:text-sand-50">Privacy Policy</a>.
+                    </p>
                   </form>
                 )}
               </div>

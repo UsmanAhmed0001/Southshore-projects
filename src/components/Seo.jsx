@@ -27,6 +27,10 @@ const pages = {
     title: 'Architectural, Structural & Construction Projects | Southshore',
     description: 'Selected architectural, structural and construction projects by Southshore Projects, from double storey extensions to new five-bedroom detached houses.',
   },
+    '/privacy': {
+    title: 'Privacy Policy | Southshore Projects',
+    description: 'How Southshore Projects collects, uses and protects personal information from website enquiries, and how to request a copy or deletion of your data.',
+  },
   '/contact': {
     title: 'Contact Southshore Projects | London, Oxford, Brighton, Reading',
     description: 'Call +44 7802 342 616 or email info@southshoreprojects.com. Offices in Wimbledon, Northampton, Oxford, Brighton and Reading. Open Monday to Saturday.',
