@@ -3,19 +3,6 @@ import { Link } from 'react-router-dom'
 import HeroVideo from '../components/HeroVideo.jsx'
 import Reveal from '../components/Reveal.jsx'
 
-// ─────────────────────────────────────────────────────────────────────────────
-// PROJECT DATA — grouped into three categories.
-//
-//  • architectural — real projects (add your uncle's details here)
-//  • structural    — real projects (the two sample drawing packages)
-//  • construction  — large-scale virtual projects. Drop AI-generated image URLs
-//                    into the `cover` field once you have them (prompts are in
-//                    the README section your assistant provided).
-//
-// Every card reads from this array — you never touch the layout below, only
-// this data.
-// ─────────────────────────────────────────────────────────────────────────────
-
 const CATEGORIES = [
   { id: 'architectural', label: 'Architectural' },
   { id: 'structural',    label: 'Structural' },
@@ -23,7 +10,7 @@ const CATEGORIES = [
 ]
 
 const projects = {
-    architectural: [
+  architectural: [
     {
       id: 'new-5-bed-detached',
       status: 'Planning Submitted',
@@ -66,7 +53,7 @@ const projects = {
       services: ['Structural Engineering', 'Building Regulations', 'Calculations'],
       cover: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025506/south-pexels-heyho-02-min_xhui4w.jpg',
       coverAlt: 'Double storey side and rear extension',
-            drawings: [
+      drawings: [
         { src: '/projects/structural/proposed-ground-floor-plan.jpg', label: 'Proposed Ground Floor Plan' },
         { src: '/projects/structural/foundation-plan.jpg', label: 'Foundation Plan' },
         { src: '/projects/structural/structural-ground-floor-plan.jpg', label: 'Structural Ground Floor Plan' },
@@ -100,7 +87,7 @@ const projects = {
       region: 'Concept Scheme',
       year: '2025',
       services: ['Construction', 'Design & Build', 'Project Management'],
-      cover: '', // ← paste AI-generated image URL here
+      cover: '',
       coverAlt: 'Large-scale mixed-use residential development, contemporary architecture',
       summary:
         'A large-scale mixed-use development concept combining ground-floor commercial units with residential apartments above. Delivered as a full design-and-build package with integrated structural, MEP, and fit-out packages under a single contract.',
@@ -122,7 +109,7 @@ const projects = {
       region: 'Concept Scheme',
       year: '2025',
       services: ['Construction', 'Commercial Fit-Out', 'Project Management'],
-      cover: '', // ← paste AI-generated image URL here
+      cover: '',
       coverAlt: 'Modern commercial office and retail building, glass facade',
       summary:
         'A contemporary commercial block delivering flexible office floorplates above ground-floor retail. Built to shell-and-core with category-A fit-out, completed on a phased programme to allow early tenant occupation.',
@@ -154,7 +141,6 @@ function ProjectCard({ p }) {
                        transition-transform duration-[3000ms] group-hover:scale-105"
           />
         ) : (
-          // Placeholder shown until an AI-generated image is added
           <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-ink-800 to-ink-950">
             <div className="text-center px-6">
               <div className="font-mono text-[11px] uppercase tracking-widestplus text-sand-100/40 mb-2">
@@ -243,6 +229,36 @@ function ProjectCard({ p }) {
           </div>
         </div>
       </div>
+
+      {/* Drawings */}
+      {p.drawings && (
+        <div className="border-t border-ink-200 bg-sand-50 p-6 md:p-10">
+          <div className="eyebrow mb-5">Drawings</div>
+          <div className="grid sm:grid-cols-3 gap-4">
+            {p.drawings.map((d) => (
+              <a
+                key={d.src}
+                href={d.src}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group/d block border border-ink-200 bg-white hover:border-ink-900 transition-colors"
+              >
+                <div className="aspect-[5/4] overflow-hidden">
+                  <img
+                    src={d.src}
+                    alt={d.label}
+                    loading="lazy"
+                    className="w-full h-full object-contain p-2 transition-transform duration-700 group-hover/d:scale-105"
+                  />
+                </div>
+                <div className="px-4 py-3 text-xs uppercase tracking-widestplus text-ink-700 border-t border-ink-200">
+                  {d.label} ↗
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </article>
   )
 }
@@ -326,7 +342,7 @@ export default function Projects() {
       {/* Status board */}
       <section className="bg-sand-100/60 grain py-20 md:py-24">
         <div className="container-prose">
-          <div className="grid md:grid-cols-3 gap-px bg-ink-200">
+          <div className="grid md:grid-cols-2 gap-px bg-ink-200">
             {[
               { label: 'In progress', value: '55 projects',     detail: 'On site across London & the UK' },
               { label: 'Handed over', value: '1,032+ projects', detail: 'Residential & commercial schemes completed' }
