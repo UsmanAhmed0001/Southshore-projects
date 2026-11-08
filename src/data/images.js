@@ -1,54 +1,54 @@
-// Image assets — referencing the existing Cloudinary CDN URLs from southshoreprojects.com
-// Replace the cloudName/version paths if you migrate to your own asset host.
-
 export const heroVideo =
   'https://res.cloudinary.com/dpnza2tuy/video/upload/v1721023520/southshore-video_new_ykqg68.mp4'
 
 export const galleryImages = [
-  {
-    src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025507/south-pexels-olgalioncat-08-min_glhjgp.jpg',
-    alt: 'Architectural detail of a contemporary residential interior'
-  },
-  {
-    src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025507/south-pexels-tima-miroshnichenko-10-min_j4qr1l.jpg',
-    alt: 'Construction site progress with steel framing'
-  },
-  {
-    src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025506/south-pexels-monica-07-min_zvdujn.jpg',
-    alt: 'Interior fit-out with refined finishes'
-  },
-  {
-    src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025506/south-pexels-heyho-03-min_ijzqtw.jpg',
-    alt: 'Modern living space with natural light'
-  },
-  {
-    src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025506/south-pexels-heyho-02-min_xhui4w.jpg',
-    alt: 'Considered residential design and joinery'
-  },
-  {
-    src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025506/pexels-olgalioncat-7245328-min_trab4x.jpg',
-    alt: 'Contemporary kitchen design'
-  },
-  {
-    src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025505/south-pexels-heyho-05-min_qae5vh.jpg',
-    alt: 'Open plan living and dining'
-  },
-  {
-    src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1721941272/south-pexels-pavel-danilyuk-09_scavqt.jpg',
-    alt: 'Construction professionals reviewing plans on site'
-  },
-  {
-    src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025505/south-pexels-heyho-06-min_uxqhuc.jpg',
-    alt: 'Refined material palette and detailing'
-  },
-  {
-    src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025505/south-pexels-heyho-01-min_u44mec.jpg',
-    alt: 'Bedroom interior with curated styling'
-  },
-  {
-    src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1721941296/southshare-paints-pixabay_wx6bhf.jpg',
-    alt: 'Paint and finishing work in progress'
-  }
+  // Real Southshore site photos (public/gallery)
+  { src: '/gallery/site-01.jpg', alt: 'Southshore Projects site photo 1' },
+  { src: '/gallery/site-02.jpg', alt: 'Southshore Projects site photo 2' },
+  { src: '/gallery/site-03.jpg', alt: 'Southshore Projects site photo 3' },
+  { src: '/gallery/site-04.jpg', alt: 'Southshore Projects site photo 4' },
+  { src: '/gallery/site-05.jpg', alt: 'Southshore Projects site photo 5' },
+  { src: '/gallery/site-06.jpg', alt: 'Southshore Projects site photo 6' },
+  { src: '/gallery/site-07.jpg', alt: 'Southshore Projects site photo 7' },
+  { src: '/gallery/site-08.jpg', alt: 'Southshore Projects site photo 8' },
+  { src: '/gallery/site-09.jpg', alt: 'Southshore Projects site photo 9' },
+  { src: '/gallery/site-10.jpg', alt: 'Southshore Projects site photo 10' },
+  { src: '/gallery/site-11.jpg', alt: 'Southshore Projects site photo 11' },
+  { src: '/gallery/site-12.jpg', alt: 'Southshore Projects site photo 12' },
+  { src: '/gallery/site-13.jpg', alt: 'Southshore Projects site photo 13' },
+  { src: '/gallery/site-14.jpg', alt: 'Southshore Projects site photo 14' },
+  { src: '/gallery/site-15.jpg', alt: 'Southshore Projects site photo 15' },
+  { src: '/gallery/site-16.jpg', alt: 'Southshore Projects site photo 16' },
+  { src: '/gallery/site-17.jpg', alt: 'Southshore Projects site photo 17' },
+  { src: '/gallery/site-18.jpg', alt: 'Southshore Projects site photo 18' },
+  { src: '/gallery/site-19.jpg', alt: 'Southshore Projects site photo 19' },
+  { src: '/gallery/site-20.jpg', alt: 'Southshore Projects site photo 20' },
+  { src: '/gallery/site-21.jpg', alt: 'Southshore Projects site photo 21' },
+  { src: '/gallery/site-22.jpg', alt: 'Southshore Projects site photo 22' },
+  { src: '/gallery/site-23.jpg', alt: 'Southshore Projects site photo 23' },
+  { src: '/gallery/site-24.jpg', alt: 'Southshore Projects site photo 24' },
+  { src: '/gallery/site-25.jpg', alt: 'Southshore Projects site photo 25' },
+  { src: '/gallery/site-26.jpg', alt: 'Southshore Projects site photo 26' },
+  { src: '/gallery/site-27.jpg', alt: 'Southshore Projects site photo 27' },
+  { src: '/gallery/site-28.jpg', alt: 'Southshore Projects site photo 28' },
+  { src: '/gallery/site-29.jpg', alt: 'Southshore Projects site photo 29' },
+  { src: '/gallery/site-30.jpg', alt: 'Southshore Projects site photo 30' },
+  { src: '/gallery/site-31.jpg', alt: 'Southshore Projects site photo 31' },
+  { src: '/gallery/site-32.jpg', alt: 'Southshore Projects site photo 32' },
+  { src: '/gallery/site-33.jpg', alt: 'Southshore Projects site photo 33' },
+  { src: '/gallery/site-34.jpg', alt: 'Southshore Projects site photo 34' },
+  // Original stock images
+  { src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025507/south-pexels-olgalioncat-08-min_glhjgp.jpg', alt: 'Architectural detail of a contemporary residential interior' },
+  { src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025507/south-pexels-tima-miroshnichenko-10-min_j4qr1l.jpg', alt: 'Construction site progress with steel framing' },
+  { src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025506/south-pexels-monica-07-min_zvdujn.jpg', alt: 'Interior fit-out with refined finishes' },
+  { src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025506/south-pexels-heyho-03-min_ijzqtw.jpg', alt: 'Modern living space with natural light' },
+  { src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025506/south-pexels-heyho-02-min_xhui4w.jpg', alt: 'Considered residential design and joinery' },
+  { src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025506/pexels-olgalioncat-7245328-min_trab4x.jpg', alt: 'Contemporary kitchen design' },
+  { src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025505/south-pexels-heyho-05-min_qae5vh.jpg', alt: 'Open plan living and dining' },
+  { src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1721941272/south-pexels-pavel-danilyuk-09_scavqt.jpg', alt: 'Construction professionals reviewing plans on site' },
+  { src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025505/south-pexels-heyho-06-min_uxqhuc.jpg', alt: 'Refined material palette and detailing' },
+  { src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025505/south-pexels-heyho-01-min_u44mec.jpg', alt: 'Bedroom interior with curated styling' },
+  { src: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1721941296/southshare-paints-pixabay_wx6bhf.jpg', alt: 'Paint and finishing work in progress' },
 ]
 
 export const logoUrl = 'https://southshoreprojects.com/southshore_blue_icon.jpeg'
