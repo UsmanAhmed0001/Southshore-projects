@@ -31,19 +31,27 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [open])
 
-  // ─── Mobile menu rendered via React portal directly on <body> ───────────────
-  // This completely bypasses the <header>'s stacking context, so the overlay
-  // always sits above every page element (footer, sections, etc.)
+  // close the mobile menu with Escape
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
+
+  const dark = open || scrolled
+
+  // Mobile/tablet menu, rendered on <body> so it always sits above the page
   const mobileMenu = typeof document !== 'undefined' ? createPortal(
     <div
       aria-hidden={!open}
+      inert={open ? undefined : ''}
       className={`
-        fixed inset-0 z-[200] bg-sand-50 flex flex-col lg:hidden
+        fixed inset-0 z-[200] bg-sand-50 flex flex-col xl:hidden
         transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
         ${open ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}
       `}
     >
-      {/* Top bar mirrors the navbar height for a seamless transition */}
       <div className="flex items-center justify-between h-20 md:h-24 px-6 md:px-10
                       border-b border-ink-100 flex-shrink-0">
         <Link
@@ -53,7 +61,7 @@ export default function Navbar() {
           onClick={() => setOpen(false)}
         >
           <img src={logoUrl} alt="" className="h-10 w-10 object-cover rounded-sm" />
-          <div className="leading-tight">
+          <div className="leading-tight whitespace-nowrap">
             <div className="font-display text-lg tracking-tightest text-ink-900">Southshore</div>
             <div className="text-[10px] uppercase tracking-widestplus text-ink-500">
               Design &amp; Construction
@@ -61,7 +69,6 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* Close ✕ */}
         <button
           aria-label="Close menu"
           onClick={() => setOpen(false)}
@@ -72,7 +79,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Nav links */}
       <nav className="flex-1 overflow-y-auto px-6 md:px-10 pt-8 pb-4">
         {links.map((l, i) => (
           <NavLink
@@ -96,7 +102,6 @@ export default function Navbar() {
         ))}
       </nav>
 
-      {/* Contact strip */}
       <div className="px-6 md:px-10 py-8 border-t border-ink-100 flex-shrink-0">
         <div className="eyebrow mb-3">Get in touch</div>
         <a
@@ -130,37 +135,37 @@ export default function Navbar() {
             ? 'bg-sand-50/90 backdrop-blur-xl border-b border-ink-100'
             : 'bg-transparent border-b border-transparent'}`}
       >
-        <div className="container-prose flex items-center justify-between h-20 md:h-24">
+        <div className="container-prose flex items-center justify-between gap-6 h-20 md:h-24">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 relative z-10"
+          <Link to="/" className="flex items-center gap-3 flex-shrink-0 relative z-10"
                 aria-label="Southshore Projects home">
             <img
               src={logoUrl}
               alt=""
               className="h-10 w-10 md:h-11 md:w-11 object-cover rounded-sm"
             />
-            <div className="leading-tight">
+            <div className="leading-tight whitespace-nowrap">
               <div className={`font-display text-lg md:text-xl tracking-tightest transition-colors duration-500
-                              ${open || scrolled ? 'text-ink-900' : 'text-sand-50'}`}>
+                              ${dark ? 'text-ink-900' : 'text-sand-50'}`}>
                 Southshore
               </div>
               <div className={`text-[10px] md:text-[11px] uppercase tracking-widestplus transition-colors duration-500
-                              ${open || scrolled ? 'text-ink-500' : 'text-sand-100/70'}`}>
+                              ${dark ? 'text-ink-500' : 'text-sand-100/70'}`}>
                 Design &amp; Construction
               </div>
             </div>
           </Link>
 
-          {/* Desktop nav */}
-          <nav className="hidden lg:flex items-center gap-9">
+          {/* Desktop nav — only on wide screens so nothing wraps */}
+          <nav className="hidden xl:flex items-center gap-7 2xl:gap-9">
             {links.map((l) => (
               <NavLink
                 key={l.to}
                 to={l.to}
                 end={l.to === '/'}
                 className={({ isActive }) =>
-                  `link-underline text-[13px] uppercase tracking-widestplus font-medium transition-colors duration-300
+                  `link-underline whitespace-nowrap text-[13px] uppercase tracking-widestplus font-medium transition-colors duration-300
                    ${scrolled
                      ? (isActive ? 'text-ink-900 active' : 'text-ink-500 hover:text-ink-900')
                      : (isActive ? 'text-sand-50 active' : 'text-sand-100/70 hover:text-sand-50')
@@ -172,10 +177,10 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA — extra-wide screens only */}
           <Link
             to="/contact"
-            className={`hidden lg:inline-flex items-center gap-2 text-[13px] uppercase tracking-widestplus
+            className={`hidden 2xl:inline-flex items-center gap-2 whitespace-nowrap flex-shrink-0 text-[13px] uppercase tracking-widestplus
                        font-medium pb-1 transition-colors duration-300
                        ${scrolled
                          ? 'text-ink-900 border-b border-ink-900 hover:text-brass-500 hover:border-brass-500'
@@ -185,27 +190,26 @@ export default function Navbar() {
             Start a project <span aria-hidden>→</span>
           </Link>
 
-          {/* Burger */}
+          {/* Burger — below xl */}
           <button
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="lg:hidden relative z-10 w-10 h-10 grid place-items-center"
+            className="xl:hidden relative z-10 w-10 h-10 grid place-items-center flex-shrink-0"
           >
             <span className={`block w-6 h-px transition-all duration-300 absolute
-                              ${open || scrolled ? 'bg-ink-900' : 'bg-sand-50'}
+                              ${dark ? 'bg-ink-900' : 'bg-sand-50'}
                               ${open ? 'rotate-45' : '-translate-y-2'}`} />
             <span className={`block w-6 h-px transition-all duration-300 absolute
-                              ${open || scrolled ? 'bg-ink-900' : 'bg-sand-50'}
+                              ${dark ? 'bg-ink-900' : 'bg-sand-50'}
                               ${open ? 'opacity-0' : 'opacity-100'}`} />
             <span className={`block w-6 h-px transition-all duration-300 absolute
-                              ${open || scrolled ? 'bg-ink-900' : 'bg-sand-50'}
+                              ${dark ? 'bg-ink-900' : 'bg-sand-50'}
                               ${open ? '-rotate-45' : 'translate-y-2'}`} />
           </button>
         </div>
       </header>
 
-      {/* Portal mobile menu — rendered on <body>, z-[200], above everything */}
       {mobileMenu}
     </>
   )
