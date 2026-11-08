@@ -17,8 +17,8 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Southshore Website <onboarding@resend.dev>',
-        to: ['ahmed_usman_farhan@outlook.com'],
+        from: 'Southshore Website <no-reply@southshoreprojects.com>',
+        to: ['info@southshoreprojects.com'],
         reply_to: email,
         subject: `New enquiry: ${enquiry || 'General'} — ${name}`,
         html: `
