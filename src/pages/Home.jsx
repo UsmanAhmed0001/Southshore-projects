@@ -48,7 +48,7 @@ export default function Home() {
       <HeroVideo
         eyebrow="Southshore Projects"
         title={<>Building<br/>your dreams<br/><span className="text-brass-400 italic font-normal">into reality.</span></>}
-        subtitle="A UK design and construction practice working across architecture, engineering, interiors, and build.."
+        subtitle="A UK design and construction practice working across architecture, engineering, interiors, and build"
       />
 
       {/* Intro band */}

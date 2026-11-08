@@ -5,6 +5,32 @@ import Reveal from '../components/Reveal.jsx'
 import { services } from '../data/services.js'
 import { galleryImages } from '../data/images.js'
 
+const projectTypes = [
+  { icon: '⬜', label: 'Wall Removals',        detail: 'Load-bearing and non-structural, with full calculations and drawings for building control.' },
+  { icon: '🏠', label: 'Loft Conversions',     detail: 'Structural design for dormer, hip-to-gable, and mansard schemes across all property types.' },
+  { icon: '📐', label: 'Extensions',           detail: 'Single and double-storey rear, side, and wrap-around extensions — design through to build.' },
+  { icon: '🔄', label: 'Internal Alterations', detail: 'Reconfiguring floor plates, opening up spaces, and creating new openings without compromising structure.' },
+  { icon: '🧱', label: 'Retaining Walls',      detail: 'Design and construction of retaining structures for gardens, basements, and site boundaries.' },
+  { icon: '🏗️', label: 'New Builds',           detail: 'Full design and construction service for residential and commercial new-build schemes.' },
+  { icon: '🏢', label: 'Commercial Fit-Out',   detail: 'Office, retail, and hospitality interiors delivered with minimal disruption to trading.' },
+  { icon: '🔧', label: 'Temporary Works',      detail: 'Propping, needling, and temporary support schemes designed and inspected to current standards.' },
+]
+
+const regions = [
+  { region: 'London', areas: ['Central London', 'South London', 'South West London', 'North London', 'East London', 'Greater London'] },
+  { region: 'South East', areas: ['Surrey', 'Kent', 'Sussex', 'Brighton & Hove', 'Hampshire', 'Berkshire'] },
+  { region: 'Northampton, Oxford & Reading', areas: ['Northampton', 'Wellingborough', 'Milton Keynes', 'Oxford', 'Oxfordshire', 'Reading'] },
+  { region: 'Nationwide', areas: ['Remote structural reviews', 'Drawing packages by post', 'On-site visits by arrangement', 'Digital project management', 'Video consultations'] },
+]
+
+const offices = [
+  { label: 'Head Office', name: 'Wimbledon, London', postcode: 'SW19 1NE' },
+  { label: 'Northampton Office', name: 'Irchester, Wellingborough', postcode: 'NN29 7HG' },
+  { label: 'Oxford Office', name: 'Oxford Business Park', postcode: 'OX4 2JZ' },
+  { label: 'Brighton Office', name: 'Mocatta House', postcode: 'BN1 4DU' },
+  { label: 'Reading Office', name: 'Fountain House', postcode: 'RG1 7QF' },
+]
+
 export default function Services() {
   return (
     <>
@@ -111,16 +137,7 @@ export default function Services() {
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-ink-200/60">
-            {[
-              { icon: '⬜', label: 'Wall Removals',         detail: 'Load-bearing and non-structural, with full calculations and drawings for building control.' },
-              { icon: '🏠', label: 'Loft Conversions',      detail: 'Structural design for dormer, hip-to-gable, and mansard schemes across all property types.' },
-              { icon: '📐', label: 'Extensions',            detail: 'Single and double-storey rear, side, and wrap-around extensions — design through to build.' },
-              { icon: '🔄', label: 'Internal Alterations',  detail: 'Reconfiguring floor plates, opening up spaces, and creating new openings without compromising structure.' },
-              { icon: '🧱', label: 'Retaining Walls',       detail: 'Design and construction of retaining structures for gardens, basements, and site boundaries.' },
-              { icon: '🏗️', label: 'New Builds',            detail: 'Full design and construction service for residential and commercial new-build schemes.' },
-              { icon: '🏢', label: 'Commercial Fit-Out',    detail: 'Office, retail, and hospitality interiors delivered with minimal disruption to trading.' },
-              { icon: '🔧', label: 'Temporary Works',       detail: 'Propping, needling, and temporary support schemes designed and inspected to current standards.' },
-            ].map((item, i) => (
+            {projectTypes.map((item, i) => (
               <Reveal key={item.label} delay={i * 60}
                 className="bg-sand-50 p-6 md:p-8 group hover:bg-ink-950 hover:text-sand-50 transition-colors duration-700">
                 <div className="text-2xl mb-4">{item.icon}</div>
@@ -144,14 +161,14 @@ export default function Services() {
               <Reveal><div className="eyebrow mb-6">Where we work</div></Reveal>
               <Reveal delay={120}>
                 <h2 className="display-1 text-[clamp(2.25rem,5vw,4.5rem)] text-ink-900">
-                  London, the Midlands, and everywhere in between.
+                  London, Northampton, Oxford, Brighton, Reading and beyond.
                 </h2>
               </Reveal>
               <Reveal delay={220}>
                 <p className="mt-8 text-ink-500 leading-relaxed max-w-lg">
-                  With our head office in Wimbledon and a branch office in Wellingborough, we cover
-                  a wide corridor from central London through the South East to the East Midlands.
-                  We also take on projects remotely and nationally where the scope suits it.
+                  With our head office in Wimbledon and offices in Northampton, Oxford, Brighton
+                  and Reading, we cover London, the South East, Northamptonshire, Oxfordshire and
+                  Berkshire. We also take on projects remotely and nationally where the scope suits it.
                 </p>
               </Reveal>
               <Reveal delay={300}>
@@ -163,26 +180,8 @@ export default function Services() {
 
             <div className="lg:col-span-6 lg:col-start-7">
               <div className="grid sm:grid-cols-2 gap-px bg-ink-200/60">
-                {[
-                  {
-                    region: 'London',
-                    areas: ['Central London', 'South London', 'South West London', 'North London', 'East London', 'Greater London']
-                  },
-                  {
-                    region: 'South East',
-                    areas: ['Surrey', 'Kent', 'Sussex', 'Hampshire', 'Berkshire', 'Oxfordshire']
-                  },
-                  {
-                    region: 'East Midlands',
-                    areas: ['Northamptonshire', 'Leicestershire', 'Derbyshire', 'Nottinghamshire', 'Lincolnshire', 'Warwickshire']
-                  },
-                  {
-                    region: 'Nationwide',
-                    areas: ['Remote structural reviews', 'Drawing packages by post', 'On-site visits by arrangement', 'Digital project management', 'Video consultations']
-                  }
-                ].map((r, i) => (
-                  <Reveal key={r.region} delay={i * 80}
-                    className="bg-sand-50 p-6 md:p-8">
+                {regions.map((r, i) => (
+                  <Reveal key={r.region} delay={i * 80} className="bg-sand-50 p-6 md:p-8">
                     <div className="eyebrow mb-4">{r.region}</div>
                     <ul className="space-y-1.5">
                       {r.areas.map(a => (
@@ -199,16 +198,13 @@ export default function Services() {
               {/* Office summary strip */}
               <Reveal delay={200}>
                 <div className="mt-6 grid sm:grid-cols-2 gap-4">
-                  <div className="border border-ink-200 p-5">
-                    <div className="eyebrow text-brass-500 mb-2">Head Office</div>
-                    <div className="font-medium text-ink-900">Wimbledon, London</div>
-                    <div className="text-sm text-ink-500 mt-1">SW19 1NE</div>
-                  </div>
-                  <div className="border border-ink-200 p-5">
-                    <div className="eyebrow text-brass-500 mb-2">Branch Office</div>
-                    <div className="font-medium text-ink-900">Irchester, Wellingborough</div>
-                    <div className="text-sm text-ink-500 mt-1">NN29 7HG</div>
-                  </div>
+                  {offices.map((o) => (
+                    <div key={o.label} className="border border-ink-200 p-5">
+                      <div className="eyebrow text-brass-500 mb-2">{o.label}</div>
+                      <div className="font-medium text-ink-900">{o.name}</div>
+                      <div className="text-sm text-ink-500 mt-1">{o.postcode}</div>
+                    </div>
+                  ))}
                 </div>
               </Reveal>
             </div>

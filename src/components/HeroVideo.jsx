@@ -3,7 +3,7 @@ import { heroVideo } from '../data/images.js'
 
 /**
  * Cinematic hero video block with overlaid title.
- * Used on every page (matching the original site's pattern).
+ * Used on every page.
  */
 export default function HeroVideo({
   title,
@@ -19,17 +19,17 @@ export default function HeroVideo({
     if (!v) return
     const onCanPlay = () => setLoaded(true)
     v.addEventListener('canplay', onCanPlay)
-    // try to play (mobile autoplay needs muted+playsinline)
     v.play().catch(() => {})
     return () => v.removeEventListener('canplay', onCanPlay)
   }, [])
 
+  // min-height lets the hero grow if the title needs more room than the screen allows
   const heightClass = variant === 'compact'
-    ? 'h-[60vh] min-h-[480px]'
-    : 'h-[100svh] min-h-[640px]'
+    ? 'min-h-[60vh] md:min-h-[520px]'
+    : 'min-h-[100svh]'
 
   return (
-    <section className={`relative w-full ${heightClass} overflow-hidden bg-ink-950`}>
+    <section className={`relative w-full ${heightClass} flex overflow-hidden bg-ink-950`}>
       <video
         ref={videoRef}
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000
@@ -39,7 +39,6 @@ export default function HeroVideo({
         loop
         playsInline
         preload="auto"
-        poster=""
       >
         <source src={heroVideo} type="video/mp4" />
         Your browser does not support HTML5 video.
@@ -50,8 +49,8 @@ export default function HeroVideo({
       <div className="absolute inset-0 bg-gradient-to-r from-ink-950/60 via-transparent to-transparent" />
       <div className="absolute inset-0 grain pointer-events-none" />
 
-      {/* Center text */}
-      <div className="relative z-10 h-full container-prose flex flex-col justify-end pb-20 md:pb-28">
+      {/* Text — top padding keeps it clear of the fixed header on short screens */}
+      <div className="relative z-10 w-full container-prose flex flex-col justify-end pt-32 md:pt-40 pb-20 md:pb-28">
         {eyebrow && (
           <div className="eyebrow text-sand-100/70 mb-5 animate-fade-up" style={{ animationDelay: '120ms' }}>
             {eyebrow}
@@ -75,7 +74,7 @@ export default function HeroVideo({
 
       {/* Scroll indicator */}
       {variant === 'tall' && (
-        <div className="absolute bottom-8 right-6 md:right-10 lg:right-16 z-10 flex items-center gap-3
+        <div className="absolute bottom-8 right-6 md:right-10 lg:right-16 z-10 hidden md:flex items-center gap-3
                         animate-fade-up"
              style={{ animationDelay: '700ms' }}>
           <span className="text-[11px] uppercase tracking-widestplus text-sand-100/70">

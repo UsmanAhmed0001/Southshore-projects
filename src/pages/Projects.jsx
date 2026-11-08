@@ -55,7 +55,7 @@ const projects = {
       region: 'South London',
       year: '2024',
       services: ['Structural Engineering', 'Building Regulations', 'Calculations'],
-      cover: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025506/south-pexels-heyho-02-min_xhui4w.jpg',
+      cover: '/gallery/site-16.jpg',
       coverAlt: 'Double storey side and rear extension',
       drawings: [
         { src: '/projects/structural/proposed-ground-floor-plan.jpg', label: 'Proposed Ground Floor Plan' },
