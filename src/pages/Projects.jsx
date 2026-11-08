@@ -147,10 +147,10 @@ function ProjectCard({ p }) {
         ) : (
           <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-ink-800 to-ink-950">
             <div className="text-center px-6">
-              <div className="font-mono text-[11px] uppercase tracking-widestplus text-sand-100/40 mb-2">
+              <div className="font-mono text-[11px] uppercase tracking-widestplus text-sand-100/60 mb-2">
                 Visual coming soon
               </div>
-              <div className="font-display text-2xl text-sand-100/30 tracking-tightest">
+              <div className="font-display text-2xl text-sand-100/60 tracking-tightest">
                 {p.title}
               </div>
             </div>

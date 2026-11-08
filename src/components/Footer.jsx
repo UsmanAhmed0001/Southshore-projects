@@ -92,7 +92,7 @@ export default function Footer() {
           <p className="text-sand-100/50 text-sm">
             © {new Date().getFullYear()} Southshore Projects. All rights reserved.
           </p>
-          <p className="text-sand-100/40 text-xs uppercase tracking-widestplus">
+          <p className="text-sand-100/60 text-xs uppercase tracking-widestplus">
             Building &nbsp;·&nbsp; Designing &nbsp;·&nbsp; Delivering — All over United Kingdom
           </p>
         </div>
