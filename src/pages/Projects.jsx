@@ -66,6 +66,11 @@ const projects = {
       services: ['Structural Engineering', 'Building Regulations', 'Calculations'],
       cover: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025506/south-pexels-heyho-02-min_xhui4w.jpg',
       coverAlt: 'Double storey side and rear extension',
+            drawings: [
+        { src: '/projects/structural/proposed-ground-floor-plan.jpg', label: 'Proposed Ground Floor Plan' },
+        { src: '/projects/structural/foundation-plan.jpg', label: 'Foundation Plan' },
+        { src: '/projects/structural/structural-ground-floor-plan.jpg', label: 'Structural Ground Floor Plan' },
+      ],
       summary:
         'The project involves the construction of a two-storey side and rear extension to the existing property. The proposed works will provide additional internal accommodation and enhance the overall layout of the house. The extension will be designed to complement the existing dwelling in terms of appearance, materials and architectural character. The development aims to maximise the available space while improving the functionality and usability of the property.',
       scope: [
