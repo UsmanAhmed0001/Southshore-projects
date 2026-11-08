@@ -323,9 +323,8 @@ export default function Projects() {
         <div className="container-prose">
           <div className="grid md:grid-cols-3 gap-px bg-ink-200">
             {[
-              { label: 'In design',   value: '1,032 projects', detail: 'Residential & commercial schemes' },
-              { label: 'On site',     value: '235 projects',   detail: 'Across London & the UK' },
-              { label: 'In handover', value: '79 projects',    detail: 'Completing this quarter' }
+              { label: 'In progress', value: '55 projects',     detail: 'On site across London & the UK' },
+              { label: 'Handed over', value: '1,032+ projects', detail: 'Residential & commercial schemes completed' }
             ].map((s, i) => (
               <Reveal key={s.label} delay={i * 120} className="bg-sand-50 p-8 md:p-12">
                 <div className="eyebrow mb-6">{s.label}</div>
