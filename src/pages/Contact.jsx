@@ -12,8 +12,17 @@ const enquiryTypes = [
   'Collaboration'
 ]
 
+const offices = [
+  { label: 'Head Office', name: 'Wimbledon, London', lines: ['Highland House, 165–167', 'The Broadway,', 'Wimbledon SW19 1NE'] },
+  { label: 'Northampton Office', lines: ['181 Arkwright Road,', 'Irchester,', 'Wellingborough NN29 7HG'] },
+  { label: 'Oxford Office', lines: ['Oxford Business Park,', 'Garsington Rd,', 'Oxford OX4 2JZ'] },
+  { label: 'Brighton Office', lines: ['Mocatta House,', 'Blackmore Ct,', 'Brighton and Hove BN1 4DU'] },
+  { label: 'Reading Office', lines: ['Fountain House,', '2 Queens Walk,', 'Reading RG1 7QF'] },
+]
+
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [sending, setSending] = useState(false)
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -26,6 +35,7 @@ export default function Contact() {
 
   const onSubmit = async (e) => {
     e.preventDefault()
+    setSending(true)
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -36,6 +46,8 @@ export default function Contact() {
       setSubmitted(true)
     } catch {
       alert('Sorry, something went wrong. Please call us or email directly.')
+    } finally {
+      setSending(false)
     }
   }
 
@@ -44,7 +56,7 @@ export default function Contact() {
       <HeroVideo
         eyebrow="Contact"
         title={<>We would love to <em className="italic font-normal text-brass-400">hear from you.</em></>}
-        subtitle="Drop us a note, give us a call, or come and find us in Wimbledon."
+        subtitle="Drop us a note, give us a call, or visit one of our offices."
         variant="compact"
       />
 
@@ -106,26 +118,16 @@ export default function Contact() {
             </Reveal>
 
             <Reveal delay={320}>
-              <div className="mt-10 pt-10 border-t border-ink-200">
-                <div className="eyebrow mb-2">Head Office</div>
-                <address className="not-italic text-ink-700 leading-relaxed">
-                  <strong className="text-ink-900 font-medium">Wimbledon, London</strong><br />
-                  Highland House, 165–167<br />
-                  The Broadway,<br />
-                  Wimbledon SW19 1NE
-                </address>
-              </div>
-            </Reveal>
-
-            <Reveal delay={360}>
-              <div className="mt-8 pt-8 border-t border-ink-200">
-                <div className="eyebrow mb-2">Branch Office</div>
-                <address className="not-italic text-ink-700 leading-relaxed">
-                  <strong className="text-ink-900 font-medium">Midlands</strong><br />
-                  181 Arkwright Road,<br />
-                  Irchester,<br />
-                  Wellingborough NN29 7HG
-                </address>
+              <div className="mt-10 pt-10 border-t border-ink-200 grid sm:grid-cols-2 gap-8">
+                {offices.map((o) => (
+                  <div key={o.label}>
+                    <div className="eyebrow mb-2">{o.label}</div>
+                    <address className="not-italic text-ink-700 leading-relaxed">
+                      {o.name && <strong className="block text-ink-900 font-medium">{o.name}</strong>}
+                      {o.lines.map((l) => <span key={l} className="block">{l}</span>)}
+                    </address>
+                  </div>
+                ))}
               </div>
             </Reveal>
           </div>
@@ -232,11 +234,12 @@ export default function Contact() {
 
                     <button
                       type="submit"
+                      disabled={sending}
                       className="inline-flex items-center gap-3 bg-sand-50 text-ink-950 px-7 py-4 text-sm
                                  font-medium tracking-wide uppercase transition-all duration-500
-                                 hover:bg-brass-400"
+                                 hover:bg-brass-400 disabled:opacity-60"
                     >
-                      Send <span aria-hidden>→</span>
+                      {sending ? 'Sending…' : <>Send <span aria-hidden>→</span></>}
                     </button>
                   </form>
                 )}
@@ -252,7 +255,7 @@ export default function Contact() {
           <Reveal>
             <div className="flex items-end justify-between flex-wrap gap-6 mb-10">
               <div>
-                <div className="eyebrow mb-4">Visit</div>
+                <div className="eyebrow mb-4">Head Office</div>
                 <h3 className="display-1 text-[clamp(2rem,4vw,3.5rem)] text-ink-900">
                   Highland House, Wimbledon.
                 </h3>
