@@ -48,7 +48,7 @@ export default function Home() {
       <HeroVideo
         eyebrow="Southshore Projects"
         title={<>Building<br/>your dreams<br/><span className="text-brass-400 italic font-normal">into reality.</span></>}
-        subtitle="A London-based design and construction practice working across architecture, engineering, interiors, and build."
+        subtitle="A UK design and construction practice working across architecture, engineering, interiors, and build.."
       />
 
       {/* Intro band */}
@@ -67,8 +67,8 @@ export default function Home() {
           <div className="lg:col-span-7 lg:col-start-6 lg:pt-4">
             <Reveal delay={200}>
               <p className="text-xl md:text-2xl text-ink-700 font-display font-light leading-snug tracking-tightest">
-                Southshore Projects is a design and construction studio based in Wimbledon. We
-                work with private clients, developers, and businesses across London — turning
+                Southshore Projects is a design and construction studio with offices across the UK. We
+                work with private clients, developers, and businesses nationwide — turning
                 considered briefs into well-made buildings.
               </p>
             </Reveal>
