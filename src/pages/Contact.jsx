@@ -23,6 +23,7 @@ const offices = [
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [sending, setSending] = useState(false)
+  const [showMap, setShowMap] = useState(false)
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -272,17 +273,31 @@ export default function Contact() {
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden border border-ink-200">
-              <iframe
-                title="Southshore Projects — Wimbledon office"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2488.1374728479873!2d-0.20074162350260846!3d51.41890127179331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487608a5388b0b99%3A0x8af1ff383ef71104!2sHighlands%20House%20the%20Broadway%2C%20165%20The%20Broadway%2C%20London%20SW19%201NE%2C%20UK!5e0!3m2!1sen!2s!4v1719985013518!5m2!1sen!2s"
-                width="100%"
-                height="100%"
-                style={{ border: 0, filter: 'grayscale(0.3) contrast(1.05)' }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            <div className="aspect-[16/9] md:aspect-[21/9] w-full overflow-hidden border border-ink-200 bg-ink-100">
+              {showMap ? (
+                <iframe
+                  title="Southshore Projects — Wimbledon office"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2488.1374728479873!2d-0.20074162350260846!3d51.41890127179331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487608a5388b0b99%3A0x8af1ff383ef71104!2sHighlands%20House%20the%20Broadway%2C%20165%20The%20Broadway%2C%20London%20SW19%201NE%2C%20UK!5e0!3m2!1sen!2s!4v1719985013518!5m2!1sen!2s"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, filter: 'grayscale(0.3) contrast(1.05)' }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              ) : (
+                <div className="w-full h-full grid place-items-center text-center p-6">
+                  <div>
+                    <p className="text-ink-700 mb-2">Highland House, 165–167 The Broadway, Wimbledon SW19 1NE</p>
+                    <p className="text-sm text-ink-500 mb-6 max-w-md mx-auto">
+                      The map is provided by Google, which may set cookies when it loads.
+                    </p>
+                    <button type="button" onClick={() => setShowMap(true)} className="btn-primary">
+                      Show map
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </Reveal>
         </div>
