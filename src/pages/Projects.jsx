@@ -20,8 +20,12 @@ const projects = {
       region: 'South London',
       year: '2024',
       services: ['Architecture', 'Planning', 'Building Regulations'],
-      cover: 'https://res.cloudinary.com/dpnza2tuy/image/upload/v1722025505/south-pexels-heyho-06-min_uxqhuc.jpg',
-      coverAlt: 'New five-bedroom detached family house',
+      cover: '/projects/architectural/3d-exterior-view.jpg',
+      coverAlt: '3D exterior view of the proposed house',
+      drawings: [
+        { src: '/projects/architectural/3d-exterior-view.jpg', label: '3D Exterior View' },
+        { src: '/projects/architectural/3d-cutaway-ground-floor.jpg', label: '3D Ground Floor Cutaway' },
+      ],
       summary:
         'The project involves the design and planning of a new five-bedroom detached family house. The property includes spacious living areas, a modern kitchen/dining space, five bedrooms, bathrooms, utility room and storage. The design maximises the site potential, natural light, privacy, parking and garden space while complementing the surrounding area. Our work covers assessing planning constraints, preparing concept designs, floor plans, elevations and site layouts, and submitting the planning application.',
       scope: [
@@ -234,7 +238,7 @@ function ProjectCard({ p }) {
       {p.drawings && (
         <div className="border-t border-ink-200 bg-sand-50 p-6 md:p-10">
           <div className="eyebrow mb-5">Drawings</div>
-          <div className="grid sm:grid-cols-3 gap-4">
+          <div className={`grid gap-4 ${p.drawings.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-3'}`}>
             {p.drawings.map((d) => (
               <a
                 key={d.src}
