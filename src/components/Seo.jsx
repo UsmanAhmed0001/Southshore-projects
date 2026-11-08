@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 
 // Change this if the site moves to a different domain
 export const SITE_URL = 'https://southshoreprojects.com'
-const DEFAULT_IMAGE = `${SITE_URL}/gallery/site-01.jpg`
+const DEFAULT_IMAGE = `${SITE_URL}/og-image.jpg`
 
 // Title (under ~60 characters) and description (under ~160) for each page
 const pages = {
@@ -72,6 +72,9 @@ export default function Seo() {
     setMeta('property', 'og:description', page.description)
     setMeta('property', 'og:url', url)
     setMeta('property', 'og:image', DEFAULT_IMAGE)
+    setMeta('property', 'og:image:width', '1200')
+    setMeta('property', 'og:image:height', '630')
+    setMeta('property', 'og:image:alt', 'Southshore Projects logo')
     setMeta('name', 'twitter:title', page.title)
     setMeta('name', 'twitter:description', page.description)
     setMeta('name', 'twitter:image', DEFAULT_IMAGE)
