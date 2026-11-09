@@ -166,7 +166,7 @@ export default function Contact() {
                           required
                           value={form.name}
                           onChange={onChange}
-                          className="input-base text-sand-50 placeholder:text-sand-100/30 border-sand-100/20 focus:border-sand-50"
+                          className="input-base text-sand-50 placeholder:text-sand-100/50 border-sand-100/20 focus:border-sand-50"
                           placeholder="Your full name"
                         />
                       </label>
@@ -178,7 +178,7 @@ export default function Contact() {
                           required
                           value={form.email}
                           onChange={onChange}
-                          className="input-base text-sand-50 placeholder:text-sand-100/30 border-sand-100/20 focus:border-sand-50"
+                          className="input-base text-sand-50 placeholder:text-sand-100/50 border-sand-100/20 focus:border-sand-50"
                           placeholder="you@example.com"
                         />
                       </label>
@@ -191,7 +191,7 @@ export default function Contact() {
                         name="phone"
                         value={form.phone}
                         onChange={onChange}
-                        className="input-base text-sand-50 placeholder:text-sand-100/30 border-sand-100/20 focus:border-sand-50"
+                        className="input-base text-sand-50 placeholder:text-sand-100/50 border-sand-100/20 focus:border-sand-50"
                         placeholder="Optional"
                       />
                     </label>
@@ -228,7 +228,7 @@ export default function Contact() {
                         rows={4}
                         value={form.message}
                         onChange={onChange}
-                        className="input-base text-sand-50 placeholder:text-sand-100/30 border-sand-100/20 focus:border-sand-50 resize-none"
+                        className="input-base text-sand-50 placeholder:text-sand-100/50 border-sand-100/20 focus:border-sand-50 resize-none"
                         placeholder="Tell us about your project…"
                       />
                     </label>
