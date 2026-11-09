@@ -34,8 +34,8 @@ export default {
         }
       },
       fontFamily: {
-        display: ['"Fraunces"', 'Georgia', 'serif'],
-        body: ['"Inter Tight"', 'system-ui', 'sans-serif'],
+        display: ['"Fraunces Variable"', 'Georgia', 'serif'],
+        body: ['"Inter Tight Variable"', 'system-ui', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace']
       },
       letterSpacing: {

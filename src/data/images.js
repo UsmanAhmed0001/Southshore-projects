@@ -1,5 +1,4 @@
-export const heroVideo =
-  'https://res.cloudinary.com/dpnza2tuy/video/upload/v1721023520/southshore-video_new_ykqg68.mp4'
+export const heroVideo = '/hero.mp4'
 
 export const galleryImages = [
   { src: '/gallery/site-01.jpg', alt: 'Navy shaker kitchen fit-out with integrated appliances – Southshore Projects' },

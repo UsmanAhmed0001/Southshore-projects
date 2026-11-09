@@ -33,8 +33,6 @@ const sections = [
       'Vercel — hosts this website and processes basic technical data such as your IP address.',
       'Resend — delivers contact form messages to our inbox (EU region).',
       'Microsoft (Outlook) — our business email provider.',
-      'Cloudinary — serves some images and video on the site.',
-      'Google Fonts — serves the fonts used on the site.',
       'Google Maps — only if you click "Show map" on our Contact page.',
     ],
     after: [
