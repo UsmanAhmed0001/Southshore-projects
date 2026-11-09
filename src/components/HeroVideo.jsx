@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { heroVideo } from '../data/images.js'
+import { heroVideo, heroPoster } from '../data/images.js'
 
 /**
  * Cinematic hero video block with overlaid title.
@@ -13,9 +13,24 @@ export default function HeroVideo({
 }) {
   const videoRef = useRef(null)
   const [loaded, setLoaded] = useState(false)
+  // Only play the video on larger screens; phones get the still image (saves several MB)
+  const [showVideo, setShowVideo] = useState(false)
 
   useEffect(() => {
-        // Safari only autoplays if the video is definitely muted
+    const big = window.matchMedia('(min-width: 768px)').matches
+    const saveData = navigator.connection && navigator.connection.saveData
+    if (big && !saveData) {
+      // start loading the video only after the page has finished loading
+      const start = () => setShowVideo(true)
+      if (document.readyState === 'complete') start()
+      else window.addEventListener('load', start, { once: true })
+    }
+  }, [])
+
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    // Safari only autoplays if the video is definitely muted
     v.muted = true
     v.defaultMuted = true
     v.setAttribute('muted', '')
@@ -24,7 +39,7 @@ export default function HeroVideo({
     v.addEventListener('playing', onPlaying)
     v.play().catch(() => {})
     return () => v.removeEventListener('playing', onPlaying)
-  }, [])
+  }, [showVideo])
 
   // min-height lets the hero grow if the title needs more room than the screen allows
   const heightClass = variant === 'compact'
@@ -33,7 +48,13 @@ export default function HeroVideo({
 
   return (
     <section className={`relative w-full ${heightClass} flex overflow-hidden bg-ink-950`}>
-      <video
+      <img
+        src={heroPoster}
+        alt=""
+        fetchpriority="high"
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {showVideo && <video
         ref={videoRef}
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000
                     ${loaded ? 'opacity-100' : 'opacity-0'}`}
@@ -41,11 +62,12 @@ export default function HeroVideo({
         muted
         loop
         playsInline
+        disablePictureInPicture
         preload="auto"
+        poster={heroPoster}
       >
         <source src={heroVideo} type="video/mp4" />
-        Your browser does not support HTML5 video.
-      </video>
+      </video>}
 
       {/* Layered atmosphere */}
       <div className="absolute inset-0 bg-gradient-to-b from-ink-950/70 via-ink-950/40 to-ink-950/85" />
