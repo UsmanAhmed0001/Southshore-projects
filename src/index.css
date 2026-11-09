@@ -123,3 +123,10 @@ body {
   width: max-content;
   display: flex;
 }
+
+/* Hide Safari's play button when autoplay is blocked (e.g. Low Power Mode) */
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls {
+  display: none !important;
+  -webkit-appearance: none;
+}
