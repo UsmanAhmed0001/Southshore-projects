@@ -20,7 +20,18 @@ export default function HeroVideo({
     v.muted = true
     v.defaultMuted = true
     v.setAttribute('muted', '')
-    v.play().catch(() => {})
+        v.play().catch(() => {
+      // Autoplay blocked (e.g. Low Power Mode): start on the first scroll, tap or key press
+      const start = () => {
+        v.play().catch(() => {})
+        ;['pointerdown', 'touchstart', 'scroll', 'keydown'].forEach((e) =>
+          window.removeEventListener(e, start)
+        )
+      }
+      ;['pointerdown', 'touchstart', 'scroll', 'keydown'].forEach((e) =>
+        window.addEventListener(e, start, { once: true, passive: true })
+      )
+    })
   }, [])
 
   // min-height lets the hero grow if the title needs more room than the screen allows
