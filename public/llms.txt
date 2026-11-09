@@ -1,0 +1,19 @@
+# Southshore Projects
+
+> Southshore Projects Limited is a UK design and construction practice offering architecture, structural engineering, structural integrity and defect reports, interior design, construction, design and build, commercial fit-out and project management. Head office in Wimbledon, London, with offices in Northampton, Oxford, Brighton and Reading.
+
+## Pages
+
+- [Home](https://southshoreprojects.com/): Overview of the practice and its services
+- [About](https://southshoreprojects.com/about): Who we are and how we work
+- [Services](https://southshoreprojects.com/services): Architecture, structural engineering, defect reports, construction and more, plus the areas we cover
+- [Projects](https://southshoreprojects.com/projects): Architectural, structural and construction projects
+- [Gallery](https://southshoreprojects.com/gallery): Photos from Southshore sites
+- [Contact](https://southshoreprojects.com/contact): Phone, email, office addresses and enquiry form
+- [Privacy Policy](https://southshoreprojects.com/privacy): How we handle personal information
+
+## Contact
+
+- Email: info@southshoreprojects.com
+- Phone: +44 7802 342 616
+- Head office: Highland House, 165–167 The Broadway, Wimbledon SW19 1NE
