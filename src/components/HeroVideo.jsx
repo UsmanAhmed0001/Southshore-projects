@@ -15,12 +15,15 @@ export default function HeroVideo({
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
-    const v = videoRef.current
-    if (!v) return
-    const onCanPlay = () => setLoaded(true)
-    v.addEventListener('canplay', onCanPlay)
+        // Safari only autoplays if the video is definitely muted
+    v.muted = true
+    v.defaultMuted = true
+    v.setAttribute('muted', '')
+    // Only fade the video in once it's actually playing; otherwise the poster stays
+    const onPlaying = () => setLoaded(true)
+    v.addEventListener('playing', onPlaying)
     v.play().catch(() => {})
-    return () => v.removeEventListener('canplay', onCanPlay)
+    return () => v.removeEventListener('playing', onPlaying)
   }, [])
 
   // min-height lets the hero grow if the title needs more room than the screen allows
