@@ -29,7 +29,8 @@ export default function Contact() {
     email: '',
     phone: '',
     enquiry: '',
-    message: ''
+    message: '',
+    website: '' // honeypot: hidden field only bots fill in
   })
 
   const onChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
@@ -43,6 +44,14 @@ export default function Contact() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
       })
+      if (res.status === 429) {
+        alert('Too many messages sent. Please try again in a few minutes, or call us directly.')
+        return
+      }
+      if (res.status === 400) {
+        alert('Please check your name, email and message, then try again.')
+        return
+      }
       if (!res.ok) throw new Error('Failed')
       setSubmitted(true)
     } catch {
@@ -150,6 +159,18 @@ export default function Contact() {
                   </div>
                 ) : (
                   <form onSubmit={onSubmit} className="space-y-7">
+                    {/* Honeypot — hidden from people, bots fill it and get dropped */}
+                    <input
+                      type="text"
+                      name="website"
+                      value={form.website}
+                      onChange={onChange}
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      className="hidden"
+                    />
+
                     <div>
                       <div className="eyebrow text-sand-100/60 mb-3">Send us a message</div>
                       <h3 className="font-display text-3xl md:text-4xl tracking-tightest leading-tight mb-2">
@@ -164,6 +185,7 @@ export default function Contact() {
                           type="text"
                           name="name"
                           required
+                          maxLength={100}
                           value={form.name}
                           onChange={onChange}
                           className="input-base text-sand-50 placeholder:text-sand-100/50 border-sand-100/20 focus:border-sand-50"
@@ -176,6 +198,7 @@ export default function Contact() {
                           type="email"
                           name="email"
                           required
+                          maxLength={200}
                           value={form.email}
                           onChange={onChange}
                           className="input-base text-sand-50 placeholder:text-sand-100/50 border-sand-100/20 focus:border-sand-50"
@@ -189,6 +212,7 @@ export default function Contact() {
                       <input
                         type="tel"
                         name="phone"
+                        maxLength={30}
                         value={form.phone}
                         onChange={onChange}
                         className="input-base text-sand-50 placeholder:text-sand-100/50 border-sand-100/20 focus:border-sand-50"
@@ -225,6 +249,7 @@ export default function Contact() {
                       <textarea
                         name="message"
                         required
+                        maxLength={5000}
                         rows={4}
                         value={form.message}
                         onChange={onChange}

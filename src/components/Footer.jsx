@@ -62,7 +62,6 @@ export default function Footer() {
               <li><Link to="/projects" className="hover:text-brass-400 transition-colors">Our Projects</Link></li>
               <li><Link to="/services" className="hover:text-brass-400 transition-colors">Our Services</Link></li>
               <li><Link to="/gallery" className="hover:text-brass-400 transition-colors">Gallery</Link></li>
-              <li><Link to="/privacy" className="hover:text-brass-400 transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
 
@@ -92,7 +91,7 @@ export default function Footer() {
           <p className="text-sand-100/50 text-sm">
             © {new Date().getFullYear()} Southshore Projects. All rights reserved.
           </p>
-          <p className="text-sand-100/60 text-xs uppercase tracking-widestplus">
+          <p className="text-sand-100/40 text-xs uppercase tracking-widestplus">
             Building &nbsp;·&nbsp; Designing &nbsp;·&nbsp; Delivering — All over United Kingdom
           </p>
         </div>
@@ -103,6 +102,30 @@ export default function Footer() {
         <div className="font-display tracking-tightest text-[20vw] leading-none text-sand-100/[0.04]
                         text-center whitespace-nowrap select-none">
           Southshore
+        </div>
+      </div>
+      {/* site credit — designed & built by */}
+      <div className="border-t border-sand-100/10">
+        <div className="container-prose py-6 flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+          <p className="text-sand-100/60 text-sm">
+            Website designed &amp; built by{' '}
+            <span className="text-sand-50 font-medium">Usman Ahmed</span>
+          </p>
+          <div className="flex flex-col md:items-end gap-1">
+          <a
+            href="mailto:ahmed_usman_farhan@outlook.com?subject=Website%20enquiry%20%E2%80%93%20saw%20southshoreprojects.com"
+            className="inline-flex items-center gap-2 text-sm text-brass-400 hover:text-sand-50 transition-colors w-fit"
+          >
+            Like this website? Get yours built — ahmed_usman_farhan@outlook.com
+            <span aria-hidden>→</span>
+          </a>
+          <a
+            href="tel:+447471707466"
+            className="text-sm text-brass-400 hover:text-sand-50 transition-colors w-fit"
+          >
+            +44 7471 707466
+          </a>
+          </div>
         </div>
       </div>
     </footer>
